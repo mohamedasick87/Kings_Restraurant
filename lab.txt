@@ -1,0 +1,264 @@
+ 1. Write a C Program to reverse the array elements in C Programming
+
+#include <stdio.h>
+#include <stdlib.h>
+#define n 6
+int main(){
+    int arr[n] = {9, 8, 7, 2, 4, 3};
+    int temp;
+    for(int i = 0; i<n/2; i++){
+        temp = arr[i];
+        arr[i] = arr[n-i-1];
+        arr[n-i-1] = temp;
+    }
+    for(int i = 0; i < n; i++){
+        printf("%d,", arr[i]);
+    }
+}
+
+2. Concatenate Two Strings Without Using strcat()
+
+#include <stdio.h>
+int main() {
+  char s1[100] = "programming ", s2[] = "is awesome";
+  int length, j;
+
+  // store length of s1 in the length variable
+  length = 0;
+  while (s1[length] != '\0') {
+    ++length;
+  }
+
+  // concatenate s2 to s1
+  for (j = 0; s2[j] != '\0'; ++j, ++length) {
+    s1[length] = s2[j];
+  }
+
+  // terminating the s1 string
+  s1[length] = '\0';
+
+  printf("After concatenation: ");
+  puts(s1);
+
+  return 0;
+}
+
+
+3. C program to Compare Two Strings without using strcmp()
+
+
+#include <stdio.h>  
+int compare(char[],char[]);  
+int main()  
+{  
+   char str1[20]; // declaration of char array  
+   char str2[20]; // declaration of char array  
+   printf("Enter the first string : ");  
+   scanf("%s",str1);  
+   printf("Enter the second string : ");  
+   scanf("%s",str2);  
+   int c= compare(str1,str2); // calling compare() function  
+   if(c==0)  
+   printf("strings are same");  
+   else  
+   printf("strings are not same");  
+  
+    return 0;  
+}  
+  
+// Comparing both the strings.  
+int compare(char a[],char b[])  
+{  
+    int flag=0,i=0;  // integer variables declaration  
+    while(a[i]!='\0' &&b[i]!='\0')  // while loop  
+    {  
+       if(a[i]!=b[i])  
+       {  
+           flag=1;  
+           break;  
+       }  
+       i++;  
+    }  
+    if(flag==0)  
+    return 0;  
+    else  
+    return 1;  
+}  
+
+4. Compute fibonacci numbers using recursion method
+
+#include<stdio.h>
+ 
+int Fibonacci(int);
+ 
+int main()
+{
+   int n, i = 0, c;
+ 
+   scanf("%d",&n);
+ 
+   printf("Fibonacci series\n");
+ 
+   for ( c = 1 ; c <= n ; c++ )
+   {
+      printf("%d\n", Fibonacci(i));
+      i++; 
+   }
+ 
+   return 0;
+}
+ 
+int Fibonacci(int n)
+{
+   if ( n == 0 )
+      return 0;
+   else if ( n == 1 )
+      return 1;
+   else
+      return ( Fibonacci(n-1) + Fibonacci(n-2) );
+} 
+
+
+5. Write a C program to find power of any number using recursion
+
+
+/**
+ * C program to find power of a number using recursion
+ */
+
+#include <stdio.h>
+
+
+/* Power function declaration */
+double pow(double base, int expo);
+
+
+int main()
+{
+    double base, power;
+    int expo;
+    
+    /* Input base and exponent from user */
+    printf("Enter base: ");
+    scanf("%lf", &base);
+    printf("Enter exponent: ");
+    scanf("%d", &expo);
+    
+    // Call pow function
+    power = pow(base, expo); 
+    
+    //print base, expo and power upto 2 fractional places
+    printf("%.2lf ^ %d = %f", base, expo, power);
+    
+    return 0;
+}
+
+
+/**
+ * Calculate power of any number.
+ * Returns base ^ expo
+ */
+double pow(double base, int expo)
+{
+    /* Base condition */
+    if(expo == 0)
+        return 1;
+    else if(expo > 0)
+        return base * pow(base, expo - 1);
+    else
+        return 1 / pow(base, -expo);
+}
+
+
+
+6. . Write a C program to find biggest among three numbers using pointer
+
+#include<stdio.h>
+
+int main()
+{
+ int a,b,c,*pa, *pb, *pc;
+
+ printf("Enter three numbers:\n");
+ scanf("%d%d%d", &a,&b,&c);
+ 
+ /* Referencing */
+ pa= &a;
+ pb= &b;
+ pc= &c;
+ if(*pa > *pb && *pa > *pc)
+ {
+  printf("Largest is: %d", *pa);
+ }
+ else if(*pb > *pc && *pb > *pc)
+ {
+  printf("Largest is : %d", *pb);
+ }
+ else
+ {
+  printf("Largest = %d", *pc);
+ }
+ return 0;
+}
+
+
+
+7.  C Program To Compare Two String Using Pointer
+
+#include<stdio.h>
+int main()
+{
+
+    char string1[50],string2[50],*str1,*str2;
+    int i,equal = 0;
+
+    printf("Enter The First String: ");
+    scanf("%s",string1);
+
+    printf("Enter The Second String: ");
+    scanf("%s",string2);
+
+    str1 = string1;
+    str2 = string2;
+
+    while(*str1 == *str2)
+    {
+
+        if ( *str1 == '\0' || *str2 == '\0' )
+            break;
+
+        str1++;
+        str2++;
+
+    }
+
+    if( *str1 == '\0' && *str2 == '\0' )
+        printf("\n\nBoth Strings Are Equal.");
+
+    else
+        printf("\n\nBoth Strings Are Not Equal.");
+
+}
+
+
+8. Count vowels in a string in C
+
+ #include <stdio.h>
+int main()
+{
+  int c = 0, count = 0;
+  char s[1000];
+
+  printf("Input a string\n");
+  gets(s);
+
+  while (s[c] != '\0') {
+    if (s[c] == 'a' || s[c] == 'A' || s[c] == 'e' || s[c] == 'E' || s[c] == 'i' || s[c] == 'I' || s[c] =='o' || s[c]=='O' || s[c] == 'u' || s[c] == 'U')
+      count++;
+    c++;
+  }
+
+  printf("Number of vowels in the string: %d", count);
+
+  return 0;
+}
